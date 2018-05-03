@@ -1,4 +1,4 @@
-/* Boid prototype */
+
 
 function Boid(swarm) {
     this.x = Math.random() * swarm.width;
@@ -102,16 +102,16 @@ Boid.prototype.step = function(swarm) {
 
         var target;
         if (min) {
-            // Keep away!
+            
             target = Math.atan2(this.y - min.y, this.x - min.x);
         } else {
-            // Match heading and move towards center
+          
             var meanh = Math.atan2(meanhy, meanhx);
             var center = Math.atan2(meany - this.y, meanx - this.x);
             target = Boid.meanAngle(meanh, meanh, meanh, center);
         }
 
-        // Move in this direction
+        
         var delta = Boid.wrap(target - this.heading, -Math.PI, Math.PI);
         delta = Boid.clamp(delta, this.radialSpeed);
         this.heading = Boid.wrap(this.heading + delta, -Math.PI, Math.PI);
@@ -174,9 +174,9 @@ Swarm.step = function (swarm) {
     }
 };
 
-/* Test */
 
-var swarm; // defined globally for skewer
+
+var swarm; 
 
 function asd(){
     swarm.createBoid(1);
